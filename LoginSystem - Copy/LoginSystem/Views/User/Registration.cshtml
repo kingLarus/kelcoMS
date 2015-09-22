@@ -1,0 +1,38 @@
+﻿@model LoginSystem.Models.UserModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registration</h2>
+
+@using (Html.BeginForm())
+{
+@Html.ValidationSummary(true, "Create user failed, check details");
+
+<div>
+
+    <fieldset>
+
+        <legend> Create New User </legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(u => u.Email)
+        </div>
+        <div class="editor-label">
+            @Html.TextBoxFor(u => u.Email)
+            @Html.ValidationMessageFor(u => u.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(u => u.Password)
+        </div>
+        <div class="editor-label">
+            @Html.PasswordFor(u => u.Password)
+            @Html.ValidationMessageFor(u => u.Password)
+        </div>
+    <input type="submit" value="Create User" />
+
+</fieldset>
+</div>
+}
